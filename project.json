@@ -1,0 +1,36 @@
+{
+  "slug": "wp-autoload-inspector",
+  "title": "Autoload Inspector",
+  "version": "0.1.0",
+  "module": "includes/Inspector.php",
+  "plugin_files": [
+    "wp-autoload-inspector.php",
+    "includes/Inspector.php",
+    "README.md",
+    "readme.txt",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "docs/DE.md",
+    "docs/VALIDATION.md"
+  ],
+  "source_files": [
+    "wp-autoload-inspector.php",
+    "includes/Inspector.php",
+    "README.md",
+    "readme.txt",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "docs/DE.md",
+    "docs/VALIDATION.md",
+    ".gitignore",
+    "project.json",
+    "tools/package.py",
+    ".github/workflows/ci.yml",
+    ".github/workflows/release.yml",
+    ".github/ISSUE_TEMPLATE/bug_report.md"
+  ]
+}
