@@ -7,3 +7,11 @@ The `Syntax and packaging` workflow runs PHP syntax lint on PHP 7.4, 8.1, 8.3 an
 No functional test suite, actual WordPress activation check, WooCommerce integration check, performance benchmark or security audit has been performed for this release. Runtime compatibility and behavior remain unverified. Minimum versions in the plugin header are design targets, not verified compatibility claims.
 
 Before a stable release, separately validate permissions/nonces, rendered escaping, representative synthetic inputs, error and limit behavior, and WP-CLI output in an isolated installation. The autoload tool also needs database-state and multisite checks; the CSV tool needs quoted/multiline records, duplicate identifiers and partial-update scenarios.
+
+## Version 0.1.1 — 2026-10-07
+
+- Official Plugin Check 2.1.0 run in new-submission mode using the full default check set with runtime checks and low-severity findings included: no outstanding findings for the plugin ZIP.
+- Activation succeeded in the disposable WordPress 7.1.3 / PHP 8.5.5 installation using SQLite Database Integration 3.0.2 and synthetic data only.
+- Autoload Inspector WP-CLI report with option names disabled and top=2 completed successfully.
+- These checks do not establish a full compatibility matrix, complete admin upload/permission behavior, real WooCommerce importer parity, multisite behavior or production performance. Further functional QA remains necessary.
+- Directory submission/review has not yet occurred.

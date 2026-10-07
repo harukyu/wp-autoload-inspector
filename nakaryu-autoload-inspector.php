@@ -3,13 +3,13 @@
  * Plugin Name: Nakaryu Autoload Inspector
  * Plugin URI: https://github.com/harukyu/wp-autoload-inspector
  * Description: Read-only database size report for autoloaded WordPress options. No option values are read or displayed.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Nakaryu GmbH
  * Author URI: https://nakaryu.de
  * License: GPL-2.0-or-later
- * Text Domain: wp-autoload-inspector
+ * Text Domain: nakaryu-autoload-inspector
  */
 namespace Nakaryu\AutoloadInspector;
 if (!defined('ABSPATH')) { exit; }
@@ -20,20 +20,20 @@ add_action('admin_menu', function () {
 });
 
 function render_page() {
-    if (!current_user_can('manage_options')) { wp_die(esc_html__('Insufficient permissions.', 'wp-autoload-inspector')); }
+    if (!current_user_can('manage_options')) { wp_die(esc_html__('Insufficient permissions.', 'nakaryu-autoload-inspector')); }
     echo '<div class="wrap"><h1>Autoload Inspector</h1>';
-    echo '<p>' . esc_html__('Inspect database byte sizes of autoloaded options. Values are never selected. Option names stay hidden unless requested.', 'wp-autoload-inspector') . '</p>';
+    echo '<p>' . esc_html__('Inspect database byte sizes of autoloaded options. Values are never selected. Option names stay hidden unless requested.', 'nakaryu-autoload-inspector') . '</p>';
     echo '<form method="post">';
     wp_nonce_field('nakaryu_autoload_scan');
-    echo '<p><label><input type="checkbox" name="include_names" value="1"> ' . esc_html__('Show option names (may contain private identifiers)', 'wp-autoload-inspector') . '</label></p>';
-    submit_button(__('Inspect current site', 'wp-autoload-inspector'));
+    echo '<p><label><input type="checkbox" name="include_names" value="1"> ' . esc_html__('Show option names (may contain private identifiers)', 'nakaryu-autoload-inspector') . '</label></p>';
+    submit_button(__('Inspect current site', 'nakaryu-autoload-inspector'));
     echo '</form>';
-    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_SERVER['REQUEST_METHOD']) && sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD'])) === 'POST') {
         check_admin_referer('nakaryu_autoload_scan');
         try {
             global $wpdb;
             $report = Inspector::collect($wpdb, !empty($_POST['include_names']));
-            echo '<h2>' . esc_html__('Report', 'wp-autoload-inspector') . '</h2>';
+            echo '<h2>' . esc_html__('Report', 'nakaryu-autoload-inspector') . '</h2>';
             echo '<p>' . esc_html(sprintf('%d options / %d stored bytes. Largest 20 listed below.', $report['total_options'], $report['total_bytes'])) . '</p>';
             echo '<table class="widefat striped"><thead><tr><th>Rank</th><th>Bytes</th><th>Share %</th><th>Option</th></tr></thead><tbody>';
             foreach ($report['largest'] as $row) {
@@ -44,7 +44,7 @@ function render_page() {
             echo '<div class="notice notice-error"><p>' . esc_html($e->getMessage()) . '</p></div>';
         }
     }
-    echo '<p>' . esc_html__('This is a database estimate, not PHP memory usage or a speed benchmark. Results may change between queries. Review the owning component before changing any option.', 'wp-autoload-inspector') . '</p></div>';
+    echo '<p>' . esc_html__('This is a database estimate, not PHP memory usage or a speed benchmark. Results may change between queries. Review the owning component before changing any option.', 'nakaryu-autoload-inspector') . '</p></div>';
 }
 
 if (defined('WP_CLI') && WP_CLI) {

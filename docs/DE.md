@@ -1,6 +1,6 @@
 # Autoload Inspector – deutsche Kurzanleitung
 
-**Vorabversion 0.1.0:** Die Integration in eine laufende WordPress-Installation wurde noch nicht geprüft. Die veröffentlichten Prüfungen betreffen Syntax und Paketbau.
+**Vorabversion 0.1.1:** Offizieller Plugin Check sowie lokale Aktivierung und einfache WP-CLI-Prüfungen abgeschlossen. Die umfassende Integration bleibt ungeprüft.
 
 ## Zweck
 
@@ -8,7 +8,7 @@ Zeigt die gespeicherte Gesamtgröße automatisch geladener Einstellungen und die
 
 ## Installation
 
-1. Unter [Releases](https://github.com/harukyu/wp-autoload-inspector/releases) die Datei `wp-autoload-inspector-0.1.0.zip` laden.
+1. Paket mit `python3 tools/package.py` bauen; die installierbare Datei heißt `nakaryu-autoload-inspector-0.1.1.zip`.
 2. Auf einer Entwicklungsinstallation unter **Plugins → Installieren → Plugin hochladen** installieren und aktivieren.
 3. **Werkzeuge → Autoload Inspector** öffnen und die Prüfung starten.
 

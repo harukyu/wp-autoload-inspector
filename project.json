@@ -1,10 +1,10 @@
 {
-  "slug": "wp-autoload-inspector",
+  "slug": "nakaryu-autoload-inspector",
   "title": "Autoload Inspector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "module": "includes/Inspector.php",
   "plugin_files": [
-    "wp-autoload-inspector.php",
+    "nakaryu-autoload-inspector.php",
     "includes/Inspector.php",
     "README.md",
     "readme.txt",
@@ -16,7 +16,7 @@
     "docs/VALIDATION.md"
   ],
   "source_files": [
-    "wp-autoload-inspector.php",
+    "nakaryu-autoload-inspector.php",
     "includes/Inspector.php",
     "README.md",
     "readme.txt",

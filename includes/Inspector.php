@@ -3,7 +3,7 @@ namespace Nakaryu\AutoloadInspector;
 if (!defined('ABSPATH')) { exit; }
 
 final class Inspector {
-    const VERSION = '0.1.0';
+    const VERSION = '0.1.1';
 
     /** SELECT-only inspection of current site's options table; never fetch values. */
     public static function collect($database, $include_names = false, $top = 20) {
