@@ -1,10 +1,10 @@
 # WordPress Autoload Inspector
 
-[![Syntax and packaging](https://github.com/harukyu/wp-autoload-inspector/actions/workflows/ci.yml/badge.svg)](https://github.com/harukyu/wp-autoload-inspector/actions/workflows/ci.yml)
+[![Syntax, behavior and packaging](https://github.com/harukyu/wp-autoload-inspector/actions/workflows/ci.yml/badge.svg)](https://github.com/harukyu/wp-autoload-inspector/actions/workflows/ci.yml)
 
 A small, read-only WordPress plugin by **[Nakaryu GmbH](https://nakaryu.de)** for investigating the database size of autoloaded options. Admin screen and WP-CLI command. **Developer preview 0.1.1: Plugin Check and isolated activation/basic CLI checks passed; broader integration remains unverified.**
 
-[Deutsche Anleitung](docs/DE.md) · [Downloads](https://github.com/harukyu/wp-autoload-inspector/releases) · [Validation scope](docs/VALIDATION.md)
+[Deutsche Anleitung](docs/DE.md) · [WordPress.org](https://wordpress.org/plugins/nakaryu-autoload-inspector/) · [Validation scope](docs/VALIDATION.md)
 
 ## Why this exists
 
@@ -12,7 +12,7 @@ When a WordPress installation accumulates settings, developers need to see where
 
 ## Install and use
 
-Build `nakaryu-autoload-inspector-0.1.1.zip` using `python3 tools/package.py`. Published release downloads are linked above. Upload it via **Plugins → Add New → Upload Plugin**, activate, then open **Tools → Autoload Inspector** and click **Inspect current site**. Use an isolated development installation for this preview.
+Install [Nakaryu Autoload Inspector from WordPress.org](https://wordpress.org/plugins/nakaryu-autoload-inspector/), or build `nakaryu-autoload-inspector-0.1.1.zip` using `python3 tools/package.py` and upload it via **Plugins → Add New → Upload Plugin**. Activate, then open **Tools → Autoload Inspector** and click **Inspect current site**. Use an isolated development installation for this preview.
 
 Use the plugin ZIP, not the `-source.zip` archive or GitHub's automatic Source code ZIP. Designed for WordPress 6.0+ and PHP 7.4+; these are implementation targets, not a validated compatibility matrix. No Composer or external service account is needed.
 
@@ -56,10 +56,11 @@ This project is independently implemented. It contains no code or settings expor
 ```sh
 php -l nakaryu-autoload-inspector.php
 php -l includes/Inspector.php
+php tests/run.php
 python3 tools/package.py
 ```
 
-CI checks PHP syntax on 7.4, 8.1, 8.3 and 8.5 and builds deterministic plugin/source ZIPs with SHA-256 sidecars. These checks do not validate SQL results, admin permissions, hook behavior or actual activation. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full functional QA remains incomplete. See [validation scope](docs/VALIDATION.md).
+CI checks PHP syntax and isolated SQL report behavior on 7.4, 8.1, 8.3 and 8.5, then builds deterministic plugin/source ZIPs with SHA-256 sidecars. The SQLite test covers byte counts, current-site table selection, runtime autoload states, output privacy, limits and database failures. It does not validate MySQL, admin permissions, hooks or actual activation. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full functional QA remains incomplete. See [validation scope](docs/VALIDATION.md).
 
 ## References
 
@@ -68,4 +69,4 @@ CI checks PHP syntax on 7.4, 8.1, 8.3 and 8.5 and builds deterministic plugin/so
 
 ## License
 
-Copyright 2026 Nakaryu GmbH. GPL-2.0-or-later; see [LICENSE](LICENSE). WordPress is a trademark of the WordPress Foundation. This independent project is not an official WordPress product.
+Copyright 2026 Max Wellner / Nakaryu GmbH. GPL-2.0-or-later; see [LICENSE](LICENSE). WordPress is a trademark of the WordPress Foundation. This independent project is not an official WordPress product.
