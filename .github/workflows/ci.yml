@@ -1,4 +1,4 @@
-name: Syntax and packaging
+name: Syntax, behavior and packaging
 on:
   push:
   pull_request:
@@ -18,6 +18,8 @@ jobs:
           coverage: none
       - name: PHP syntax
         run: find . -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Isolated report behavior
+        run: php tests/run.php
       - uses: actions/setup-python@v7
         with:
           python-version: '3.14'
