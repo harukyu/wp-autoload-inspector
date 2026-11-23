@@ -30,6 +30,7 @@
     "project.json",
     "tools/package.py",
     "tests/run.php",
+    "tests/wordpress-mysql.php",
     ".github/workflows/ci.yml",
     ".github/workflows/release.yml",
     ".github/ISSUE_TEMPLATE/bug_report.md"

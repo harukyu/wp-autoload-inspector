@@ -60,7 +60,7 @@ php tests/run.php
 python3 tools/package.py
 ```
 
-CI checks PHP syntax and isolated SQL report behavior on 7.4, 8.1, 8.3 and 8.5, then builds deterministic plugin/source ZIPs with SHA-256 sidecars. The SQLite test covers byte counts, current-site table selection, runtime autoload states, output privacy, limits and database failures. It does not validate MySQL, admin permissions, hooks or actual activation. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full functional QA remains incomplete. See [validation scope](docs/VALIDATION.md).
+CI checks PHP syntax and isolated SQL report behavior on 7.4, 8.1, 8.3 and 8.5, then builds deterministic plugin/source ZIPs with SHA-256 sidecars. The SQLite test covers byte counts, current-site table selection, runtime autoload states, output privacy, limits and database failures. A separate job runs the unchanged plugin code against WordPress 7.1.4, PHP 8.4 and MySQL 8 with synthetic options. Admin permissions, rendering, multisite and production performance remain unverified. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. See [validation scope](docs/VALIDATION.md).
 
 ## References
 
